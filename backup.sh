@@ -11,19 +11,19 @@ function WAIT_APPROVAL(){
 	return 0;
 }
 function CHECK_AND_ADJUST_FROM(){
-if [ -z $from ]; then
+if [ -z "$from" ]; then
 	from=$PWD
-elif [ -n $from ];then
-	cd $from
+elif [ -n "$from" ];then
+	cd "$from"
 	from=$PWD
 fi
 }
 function CHECK_AND_ADJUST_TO(){
-test -z $to && to="$HOME/backup"
-if [ $to = "$HOME/backup" ] && [ ! -d "$HOME/backup" ]; then
+test -z "$to" && to="$HOME/backup"
+if [ $"to" = "$HOME/backup" ] && [ ! -d "$HOME/backup" ]; then
     mkdir -p "$HOME/backup"
-elif [ -n $to ] && [ ! -d $to ] ; then
-	mkdir -p $to
+elif [ -n "$to" ] && [ ! -d "$to" ] ; then
+	mkdir -p "$to"
 fi
 }
 
@@ -43,7 +43,7 @@ PRINT_WORKDIRS
 WAIT_APPROVAL || exit 1
  
 for i in ${files}; do
-	cp -r "${from}/${i}" ${to}
+	cp -r "${from}/${i}" "${to}"
 done
 
 exit 0;
