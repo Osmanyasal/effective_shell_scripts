@@ -9,6 +9,6 @@ mv [filename].sh /usr/local/bin
 Here's the whole list.
 
 - Backup.sh
-  - This script allows you to copy selected files to $HOME/backup directory automatically 
+  - This script allows you to copy selected files to $HOME/backup directory automatically or you can enter specific directories. entered file names are processed first as shell expansion unless you typed in between \" or \' quote characters.<br>(see more https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html)
    <img width="650" alt="Screen Shot 2022-02-21 at 2 43 37 PM" src="https://user-images.githubusercontent.com/22853419/154948950-b669e1f7-e8e8-42d1-9a9c-f401bda259ae.png">
 
