@@ -12,3 +12,10 @@ Here's the whole list.
   - This script allows you to copy selected files to $HOME/backup directory automatically or you can enter specific directories. entered file names are processed first as shell expansion unless you typed in between \" or \' quote characters.<br>[see more](https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html) <br> 
   - This copies all files in the FROM directory to TO
     <img width="650" alt="Screen Shot 2022-02-21 at 2 43 37 PM" src="https://user-images.githubusercontent.com/22853419/154948950-b669e1f7-e8e8-42d1-9a9c-f401bda259ae.png">
+
+- [PingServers.sh](https://github.com/Osmanyasal/effective_shell_scripts/blob/main/pingServers)
+  - This script allows you to ping servers that's given in a file
+  - See usage with <b>pingServers -h</b> option <br>
+  ![Screen Shot 2022-02-25 at 5 10 34 PM](https://user-images.githubusercontent.com/22853419/155729363-9c73e33d-03fe-479c-a30d-314caae0714b.png)
+
+
