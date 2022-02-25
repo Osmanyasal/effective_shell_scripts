@@ -1,0 +1,51 @@
+#!/bin/bash
+
+function HELP(){
+echo "#AUTHOR:rt7"
+echo "#Script to ping servers"
+echo "#exec: pingServers [-h] [file] [timeOut]"
+echo "#[file] file that has the ip adressses of the servers seperated by endline."
+echo "#[timeOut] set timeOut for ping command (.5 default) see ping command."
+}
+function PRINT_ALIVE_SERVERS(){
+    echo " --------------- "
+    echo "| alive Servers |"
+    echo " --------------- "
+    for i in $aliveList;do
+        echo $i
+    done
+    echo ""
+}
+
+function PRINT_DEAD_SERVERS(){
+    echo " -------------- "
+    echo "| dead Servers |"
+    echo " -------------- "
+    for i in $deadList;do
+        echo $i
+    done
+    echo ""
+}
+
+test "$1" = "-h" && HELP && exit 0
+if [ ! -f "$1" ];then
+    echo "$1 is not a file."
+    exit 1
+else
+    aliveList=""
+    deadList=""
+    
+while read line
+    do  
+    ping -c1 -W ${2:-'.5'} "$line" >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
+    	  aliveList="${aliveList} ${line}"
+	else deadList="$deadList $line"
+    fi	    
+    done < "$1"
+fi
+ 
+
+PRINT_ALIVE_SERVERS
+PRINT_DEAD_SERVERS
+exit 0
